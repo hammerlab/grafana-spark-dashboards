@@ -10,6 +10,841 @@
   "sharedCrosshair": false,
   "rows": [
     {
+      "title": "Executor JVMs",
+      "height": "350px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "GC rates, time and dotted counts",
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "id": 22,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "ms",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": false,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(aliasSub(summarize(derivative(application_1417724823159_0138.*.jvm.PS-Scavenge.time), '5s', 'avg', false), '^[^.]*\\.([0-9]*)\\..*', '\\1 time'), '.*app.*', 'driver time')",
+              "hide": false
+            },
+            {
+              "target": "aliasSub(aliasSub(summarize(derivative(application_1417724823159_0138.*.jvm.PS-Scavenge.count), '5s', 'sum', false), '^[^.]*\\.([0-9]*)\\..*', '\\1 count'), '.*app.*', 'driver count')",
+              "hide": false
+            }
+          ],
+          "aliasColors": {
+            "driver count": "#6D1F62",
+            "driver time": "#6D1F62",
+            "187 count": "#E24D42"
+          },
+          "seriesOverrides": [
+            {
+              "alias": "/count/",
+              "linewidth": 1,
+              "yaxis": 2,
+              "points": true,
+              "pointradius": 1,
+              "steppedLine": true,
+              "zindex": -3
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "Eden-space",
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "id": 24,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": 1,
+            "rightMax": null,
+            "leftMin": 0,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": false,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(aliasSub(summarize(application_1417724823159_0138.*.jvm.pools.PS-Eden-Space.usage, '7s', 'avg', false), '^.*\\.([0-9]*)\\..*', '\\1'), '.*application.*', 'driver')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "driver",
+              "linewidth": 3
+            }
+          ],
+          "links": [],
+          "leftYAxisLabel": ""
+        },
+        {
+          "title": "Old-gen",
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "id": 25,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": 1,
+            "rightMax": null,
+            "leftMin": 0,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": false,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(aliasSub(movingAverage(application_1417724823159_0138.*.jvm.pools.PS-Old-Gen.usage, 5), '^.*\\.([0-9]*)\\..*', '\\1'), '.*application.*', 'driver')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "driver",
+              "linewidth": 3
+            }
+          ],
+          "links": [],
+          "leftYAxisLabel": ""
+        },
+        {
+          "title": "Survivor-Space",
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "id": 27,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": 1,
+            "rightMax": null,
+            "leftMin": 0,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": false,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(aliasSub(movingAverage(application_1417724823159_0138.*.jvm.pools.PS-Survivor-Space.usage, 5), '^.*\\.([0-9]*)\\..*', '\\1'), '.*application.*', 'driver')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "driver",
+              "linewidth": 3
+            }
+          ],
+          "links": [],
+          "leftYAxisLabel": ""
+        },
+        {
+          "title": "Code-cache",
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "id": 23,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": 1,
+            "rightMax": null,
+            "leftMin": 0,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": false,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(aliasSub(application_1417724823159_0138.*.jvm.pools.Code-Cache.usage, '^.*\\.([0-9]*)\\..*', '\\1'), '^application.*', 'driver')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "driver",
+              "linewidth": 3
+            }
+          ],
+          "links": [],
+          "leftYAxisLabel": ""
+        },
+        {
+          "title": "GC times and dotted counts",
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "id": 21,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "ms",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": false,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false,
+            "alignAsTable": false,
+            "rightSide": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(aliasSub(application_1417724823159_0138.*.jvm.PS-Scavenge.time, '^[^.]*\\.([0-9]*)\\..*', '\\1 time'), '^app.*', 'driver time')",
+              "hide": false
+            },
+            {
+              "target": "aliasSub(aliasSub(application_1417724823159_0138.*.jvm.PS-Scavenge.count, '^[^.]*\\.([0-9]*)\\..*', '\\1 count'), '^app.*', 'driver count')",
+              "hide": false
+            }
+          ],
+          "aliasColors": {
+            "driver count": "#6D1F62",
+            "driver time": "#6D1F62"
+          },
+          "seriesOverrides": [
+            {
+              "alias": "/count/",
+              "linewidth": 1,
+              "yaxis": 2,
+              "pointradius": 1,
+              "steppedLine": true,
+              "zindex": -3
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "1: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 29,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.1.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "2: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 30,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.2.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "3: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 31,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.3.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "4: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 32,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.4.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        }
+      ]
+    },
+    {
+      "title": "threadpool",
+      "height": "300px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "active tasks (stacked per executor)",
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "graph",
+          "id": 8,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 10,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": true,
+          "percentage": false,
+          "legend": {
+            "show": false,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "individual",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(application_1417724823159_0138.*.executor.threadpool.activeTasks, 1)"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [],
+          "links": []
+        },
+        {
+          "title": "Completed tasks per executor",
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "graph",
+          "id": 9,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": false,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(application_1417724823159_0138.*.executor.threadpool.completeTasks, 1)"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [],
+          "links": []
+        },
+        {
+          "title": "Completed tasks per minute per executor",
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "graph",
+          "id": 17,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": true,
+          "pointradius": 1,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": false,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(derivative(summarize(application_1417724823159_0138.*.executor.threadpool.completeTasks, '1m', 'avg', false)), 1)"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [],
+          "links": []
+        }
+      ]
+    },
+    {
       "title": "Driver JVM / GC",
       "height": "250px",
       "editable": true,
@@ -236,7 +1071,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ms",
             "short"
           ],
           "grid": {
@@ -274,7 +1109,7 @@
           },
           "targets": [
             {
-              "target": "movingAverage(perSecond(application_1417724823159_0138.<driver>.jvm.PS-Scavenge.time), 10)"
+              "target": "alias(movingAverage(perSecond(application_1417724823159_0138.<driver>.jvm.PS-Scavenge.time), 10),'GC time')"
             }
           ],
           "aliasColors": {},
@@ -327,7 +1162,7 @@
           "steppedLine": false,
           "tooltip": {
             "value_type": "cumulative",
-            "shared": false
+            "shared": true
           },
           "targets": [
             {
@@ -337,12 +1172,7 @@
           "aliasColors": {},
           "seriesOverrides": [
             {
-              "alias": "Code-Cache",
-              "yaxis": 2
-            },
-            {
-              "alias": "Code-Cache,10)",
-              "yaxis": 2
+              "alias": "Code-Cache"
             }
           ],
           "links": []
@@ -403,235 +1233,14 @@
           "aliasColors": {},
           "seriesOverrides": [],
           "links": []
-        }
-      ]
-    },
-    {
-      "title": "Executor JVMs",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "title": "GC times and dotted counts",
-          "error": false,
-          "span": 6,
-          "editable": true,
-          "type": "graph",
-          "id": 21,
-          "datasource": null,
-          "renderer": "flot",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "ms",
-            "short"
-          ],
-          "grid": {
-            "leftMax": null,
-            "rightMax": null,
-            "leftMin": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "lines": true,
-          "fill": 0,
-          "linewidth": 4,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
-          "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
-            "current": false,
-            "total": false,
-            "avg": false
-          },
-          "nullPointMode": "null",
-          "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": true
-          },
-          "targets": [
-            {
-              "target": "aliasSub(aliasSub(application_1417724823159_0138.*.jvm.PS-Scavenge.time, '^[^.]*\\.([0-9]*)\\..*', '\\1 time'), '^app.*', 'driver time')"
-            },
-            {
-              "target": "aliasSub(aliasSub(application_1417724823159_0138.*.jvm.PS-Scavenge.count, '^[^.]*\\.([0-9]*)\\..*', '\\1 count'), '^app.*', 'driver count')",
-              "hide": false
-            }
-          ],
-          "aliasColors": {
-            "driver count": "#6D1F62",
-            "driver time": "#6D1F62"
-          },
-          "seriesOverrides": [
-            {
-              "alias": "/count/",
-              "linewidth": 1,
-              "yaxis": 2,
-              "pointradius": 1,
-              "steppedLine": true,
-              "zindex": -3
-            }
-          ],
-          "links": []
         },
         {
-          "title": "GC rates, time and dotted counts",
-          "error": false,
-          "span": 6,
-          "editable": true,
-          "type": "graph",
-          "id": 22,
-          "datasource": null,
-          "renderer": "flot",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "ms",
-            "short"
-          ],
-          "grid": {
-            "leftMax": null,
-            "rightMax": null,
-            "leftMin": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "lines": true,
-          "fill": 0,
-          "linewidth": 3,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
-          "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
-            "current": false,
-            "total": false,
-            "avg": false
-          },
-          "nullPointMode": "null",
-          "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": true
-          },
-          "targets": [
-            {
-              "target": "aliasSub(aliasSub(movingAverage(derivative(application_1417724823159_0138.*.jvm.PS-Scavenge.time), 7), '^[^.]*\\.([0-9]*)\\..*', '\\1 time'), '.*app.*', 'driver time')"
-            },
-            {
-              "target": "aliasSub(aliasSub(summarize(derivative(application_1417724823159_0138.*.jvm.PS-Scavenge.count), '5s', 'sum', false), '^[^.]*\\.([0-9]*)\\..*', '\\1 count'), '.*app.*', 'driver count')",
-              "hide": false
-            }
-          ],
-          "aliasColors": {
-            "driver count": "#6D1F62",
-            "driver time": "#6D1F62",
-            "187 count": "#E24D42"
-          },
-          "seriesOverrides": [
-            {
-              "alias": "/count/",
-              "linewidth": 1,
-              "yaxis": 2,
-              "points": true,
-              "pointradius": 1,
-              "steppedLine": true,
-              "zindex": -3
-            }
-          ],
-          "links": []
-        }
-      ]
-    },
-    {
-      "title": "threadpool",
-      "height": "300px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "title": "active tasks (stacked per executor)",
+          "title": "no title (click here)",
           "error": false,
           "span": 4,
           "editable": true,
           "type": "graph",
-          "id": 8,
-          "datasource": null,
-          "renderer": "flot",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ],
-          "grid": {
-            "leftMax": null,
-            "rightMax": null,
-            "leftMin": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "lines": true,
-          "fill": 10,
-          "linewidth": 1,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": true,
-          "percentage": false,
-          "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
-            "current": false,
-            "total": false,
-            "avg": false
-          },
-          "nullPointMode": "null",
-          "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": true
-          },
-          "targets": [
-            {
-              "target": "aliasByNode(application_1417724823159_0138.*.executor.threadpool.activeTasks, 1)"
-            }
-          ],
-          "aliasColors": {},
-          "seriesOverrides": [],
-          "links": []
-        },
-        {
-          "title": "Completed tasks per executor",
-          "error": false,
-          "span": 4,
-          "editable": true,
-          "type": "graph",
-          "id": 9,
+          "id": 28,
           "datasource": null,
           "renderer": "flot",
           "x-axis": true,
@@ -667,77 +1276,17 @@
             "total": false,
             "avg": false
           },
-          "nullPointMode": "null",
+          "nullPointMode": "connected",
           "steppedLine": false,
           "tooltip": {
             "value_type": "cumulative",
-            "shared": true
+            "shared": false
           },
           "targets": [
-            {
-              "target": "aliasByNode(application_1417724823159_0138.*.executor.threadpool.completeTasks, 1)"
-            }
+            {}
           ],
           "aliasColors": {},
-          "seriesOverrides": [],
-          "links": []
-        },
-        {
-          "title": "Completed tasks per minute per executor",
-          "error": false,
-          "span": 4,
-          "editable": true,
-          "type": "graph",
-          "id": 17,
-          "datasource": null,
-          "renderer": "flot",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ],
-          "grid": {
-            "leftMax": null,
-            "rightMax": null,
-            "leftMin": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "lines": true,
-          "fill": 0,
-          "linewidth": 1,
-          "points": true,
-          "pointradius": 1,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
-          "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
-            "current": false,
-            "total": false,
-            "avg": false
-          },
-          "nullPointMode": "null",
-          "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": true
-          },
-          "targets": [
-            {
-              "target": "aliasByNode(derivative(summarize(application_1417724823159_0138.*.executor.threadpool.completeTasks, '1m', 'avg', false)), 1)"
-            }
-          ],
-          "aliasColors": {},
-          "seriesOverrides": [],
-          "links": []
+          "seriesOverrides": []
         }
       ]
     },
@@ -781,7 +1330,7 @@
           "stack": true,
           "percentage": false,
           "legend": {
-            "show": true,
+            "show": false,
             "values": false,
             "min": false,
             "max": false,
@@ -789,10 +1338,10 @@
             "total": false,
             "avg": false
           },
-          "nullPointMode": "null",
+          "nullPointMode": "null as zero",
           "steppedLine": false,
           "tooltip": {
-            "value_type": "cumulative",
+            "value_type": "individual",
             "shared": true
           },
           "targets": [
@@ -838,7 +1387,7 @@
           "stack": false,
           "percentage": false,
           "legend": {
-            "show": true,
+            "show": false,
             "values": false,
             "min": false,
             "max": false,
@@ -895,7 +1444,7 @@
           "stack": false,
           "percentage": false,
           "legend": {
-            "show": true,
+            "show": false,
             "values": false,
             "min": false,
             "max": false,
@@ -952,7 +1501,7 @@
           "stack": false,
           "percentage": false,
           "legend": {
-            "show": true,
+            "show": false,
             "values": false,
             "min": false,
             "max": false,
@@ -1011,7 +1560,7 @@
           "stack": true,
           "percentage": false,
           "legend": {
-            "show": true,
+            "show": false,
             "values": false,
             "min": false,
             "max": false,
@@ -1019,10 +1568,10 @@
             "total": false,
             "avg": false
           },
-          "nullPointMode": "null",
+          "nullPointMode": "null as zero",
           "steppedLine": false,
           "tooltip": {
-            "value_type": "cumulative",
+            "value_type": "individual",
             "shared": true
           },
           "targets": [
@@ -1071,8 +1620,8 @@
     }
   ],
   "time": {
-    "from": "2015-01-25T03:27:59.451Z",
-    "to": "2015-01-25T03:31:49.211Z",
+    "from": "2015-01-25T03:41:44.633Z",
+    "to": "2015-01-25T04:09:53.536Z",
     "now": false
   },
   "templating": {
