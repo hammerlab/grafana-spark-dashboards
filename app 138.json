@@ -662,6 +662,982 @@
             }
           ],
           "links": []
+        },
+        {
+          "title": "5: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 33,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.5.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "6: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 34,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.6.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "7: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 35,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.7.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "8: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 36,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.8.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "9: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 37,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.9.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "10: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 38,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.10.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "11: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 39,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.11.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "12: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 40,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.12.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "13: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 41,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.13.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "14: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 42,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.14.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "15: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 43,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.15.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "16: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 44,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.16.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "17: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 45,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.17.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "18: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 46,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.18.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "19: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 47,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.19.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
+        },
+        {
+          "title": "20: GC tiers / generations",
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "graph",
+          "id": 48,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasSub(movingAverage(application_1417724823159_0138.20.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [
+            {
+              "alias": "Code-Cache"
+            }
+          ],
+          "links": []
         }
       ]
     },
