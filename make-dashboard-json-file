@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+./make-dashboard-json "$1" > "$1"
