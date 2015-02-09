@@ -1,3 +1,12 @@
 #!/usr/bin/env bash
 
-./make-dashboard-json "$1" > "$1"
+id="$1"
+shift
+filename="$id".json
+
+echo "$filename"
+
+./make-dashboard-json.js "$id" "$@" > "$filename"
+
+curl -T "$filename" http://demeter-login2.demeter.hpc.mssm.edu:9200/grafana-dash/dashboard/
+
