@@ -52,7 +52,7 @@ function render(json, vars, strict) {
     return json.map(function(elem) {
       return render(elem, vars, strict);
     });
-  } else if (tpe == 'number' || tpe == 'undefined' || json == null) {
+  } else if (tpe == 'number' || tpe == 'undefined' || tpe == 'boolean' || json == null) {
     return json;
   } else {
     var obj = {};
