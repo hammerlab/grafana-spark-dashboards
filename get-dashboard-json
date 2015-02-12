@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+curl -s http://demeter-login2.demeter.hpc.mssm.edu:9200/grafana-dash/dashboard/"$1" | ./parse-dashboard-json

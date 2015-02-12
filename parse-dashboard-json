@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+var stdin = "";
+process.stdin.on('data', function(chunk) { stdin += chunk; });
+process.stdin.on('end', function() {
+  var obj = JSON.parse(stdin);
+  console.log(JSON.stringify(obj, null, 4));
+
+  var dashboard_str = (!!(obj["_source"])) ? obj["_source"]["dashboard"] : obj["dashboard"];
+  if (dashboard_str) {
+    var dashboard = JSON.parse(dashboard_str);
+    console.log('');
+    console.log("dashboard:");
+    console.log(JSON.stringify(dashboard, null, 4));
+  }
+});

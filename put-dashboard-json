@@ -6,7 +6,7 @@ filename="$id".json
 
 echo "$filename"
 
-./make-dashboard-json.js "$id" "$@" > "$filename"
+./make-dashboard-json "$id" "$@" > "$filename"
 
 curl -T "$filename" http://demeter-login2.demeter.hpc.mssm.edu:9200/grafana-dash/dashboard/
 
