@@ -48,7 +48,7 @@
   },
   "targets": [
     {
-      "target": "aliasSub(movingAverage(${statsd_prefix}${app_id}.${driver_identifier}.jvm.total.*, 5), '^.*\\.(total\\.[^.,]*).*', '\\1')"
+      "target": "aliasSub(summarize(${statsd_prefix}${app_id}.${driver_identifier}.jvm.total.*, '10s', 'avg', false), '^.*\\.(total\\.[^.,]*).*', '\\1')"
     }
   ],
   "aliasColors": {},

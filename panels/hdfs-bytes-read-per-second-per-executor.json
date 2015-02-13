@@ -40,7 +40,7 @@
     "total": false,
     "avg": false
   },
-  "nullPointMode": "null",
+  "nullPointMode": "connected",
   "steppedLine": false,
   "tooltip": {
     "value_type": "cumulative",
@@ -48,7 +48,7 @@
   },
   "targets": [
     {
-      "target": "aliasByNode(perSecond(movingAverage(${statsd_prefix}${app_id}.*.executor.filesystem.hdfs.read_bytes), 10), 1)"
+      "target": "aliasByNode(${statsd_prefix}${app_id}.*.executor.filesystem.hdfs.read_bytes, 1)"
     }
   ],
   "aliasColors": {},
