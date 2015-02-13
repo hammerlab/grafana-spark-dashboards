@@ -31,6 +31,18 @@ var end_time = getTimeArg('end');
 var statsd_mode = opts['statsd'];
 
 var id = 1;
+
+
+/**
+ * Parse a string looking for variables, substitute values for them where appropriate.
+ *
+ * In this context, "variables" are placeholders of the form "${foo}" found in the string
+ * argument @str. If a matching "foo" key is found in @vars, "${foo}" is replaced with
+ * @vars["foo"].
+ *
+ * If a variable is found with no matching key in @vars, an error will be thrown or silently
+ * suppressed depending on the value of @strict.
+ */
 function renderString(str, vars, strict) {
   var regex = /\$\{([a-zA-Z_0-9]+)\}/g;
   var ret = '';
@@ -60,6 +72,14 @@ function renderString(str, vars, strict) {
   }
 }
 
+
+/**
+ * Traverse a @json object, replacing "${foo}" placeholders in any string values with the value
+ * e.g. @vars["foo"].
+ *
+ * Require any observed "${foo}" vars to have a corresponding key in @vars, or not, by setting
+ * or not setting @strict.
+ */
 function render(json, vars, strict) {
   var tpe = typeof(json);
   if (tpe == 'string') {
@@ -79,16 +99,19 @@ function render(json, vars, strict) {
   }
 }
 
+
+/**
+ * JSON-file-parsing helpers.
+ */
 function parseFile(filename) {
   return JSON.parse(fs.readFileSync(filename));
 }
-
 function parsePanel(filename) {
   return parseFile("panels/" + filename);
 }
 
 
-var executor_panel = parsePanel("executor.json");
+// A "row" with many per-executor graphs.
 var executor_row = {
   "title": "Executor JVMs",
   "height": "350px",
@@ -97,6 +120,7 @@ var executor_row = {
   "panels": []
 }
 
+var executor_panel = parsePanel("executor.json");
 for (var executor_id = 1; executor_id <= max_executor_id; ++executor_id) {
   executor_row.panels.push(
         render(
@@ -109,6 +133,8 @@ for (var executor_id = 1; executor_id <= max_executor_id; ++executor_id) {
   );
 }
 
+
+// A "row" with panels about the #'s of active and completed tasks.
 var threadpool_row = {
   "title": "threadpool",
   "height": "300px",
@@ -121,6 +147,8 @@ var threadpool_row = {
   ]
 };
 
+
+// A "row" with driver-specific stats.
 var driver_row = {
   "title": "Driver JVM / GC",
   "height": "250px",
@@ -137,6 +165,7 @@ var driver_row = {
 };
 
 
+// A "row" with HDFS I/O stats.
 var hdfs_row =     {
         "title": "HDFS I/O",
         "height": "300px",
@@ -151,6 +180,8 @@ var hdfs_row =     {
         ]
       }
 
+
+// A "row" with metrics about the carbon daemon.
 var carbon_row =     {
   "title": "Carbon row",
   "height": "250px",
@@ -163,6 +194,8 @@ var carbon_row =     {
   ]
 }
 
+
+// The dashboard, with its rows.
 var dashboardJson = parseFile("dashboard.json");
 dashboardJson.rows = [
   executor_row,
@@ -173,6 +206,7 @@ dashboardJson.rows = [
 ];
 
 
+// Render various values into the dashboard JSON.
 var renderedDashboardJson = render(
       dashboardJson,
       {
@@ -185,6 +219,8 @@ var renderedDashboardJson = render(
       true
 );
 
+
+// Stringify the dashboard JSON and render into format suitable for Elasticsearch.
 var obj = render(
       {
         "user": "guest",
@@ -199,5 +235,7 @@ var obj = render(
       true
 );
 
+
+// Print to stdout; `put-dashboard-json` ships this output to Elasticsearch, where desired.
 console.log(JSON.stringify(obj, null, 4));
 
