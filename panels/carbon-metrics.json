@@ -1,0 +1,87 @@
+{
+  "title": "Carbon Stats - metrics collected, points per update",
+  "error": false,
+  "span": 4,
+  "editable": true,
+  "type": "graph",
+  "id": "${id}",
+  "datasource": null,
+  "renderer": "flot",
+  "x-axis": true,
+  "y-axis": true,
+  "y_formats": [
+    "short",
+    "short"
+  ],
+  "grid": {
+    "leftMax": null,
+    "rightMax": null,
+    "leftMin": null,
+    "rightMin": null,
+    "threshold1": null,
+    "threshold2": null,
+    "threshold1Color": "rgba(216, 200, 27, 0.27)",
+    "threshold2Color": "rgba(234, 112, 112, 0.22)"
+  },
+  "lines": true,
+  "fill": 0,
+  "linewidth": 1,
+  "points": false,
+  "pointradius": 5,
+  "bars": false,
+  "stack": false,
+  "percentage": false,
+  "legend": {
+    "show": true,
+    "values": false,
+    "min": false,
+    "max": false,
+    "current": false,
+    "total": false,
+    "avg": false
+  },
+  "nullPointMode": "connected",
+  "steppedLine": false,
+  "tooltip": {
+    "value_type": "cumulative",
+    "shared": true
+  },
+  "targets": [
+    {
+      "target": "aliasSub(carbon.agents.demeter-login1-a.metricsReceived, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "hide": false
+    },
+    {
+      "target": "aliasSub(carbon.agents.demeter-login1-a.pointsPerUpdate, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "hide": false
+    },
+    {
+      "target": "aliasSub(carbon.agents.demeter-login1-a.avgUpdateTime, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "hide": false
+    },
+    {
+      "target": "aliasSub(carbon.agents.demeter-login1-a.errors, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "hide": false
+    },
+    {
+      "target": "aliasSub(carbon.agents.demeter-login1-a.cache.queues, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "hide": true
+    }
+  ],
+  "aliasColors": {},
+  "seriesOverrides": [
+    {
+      "alias": "memUsage",
+      "yaxis": 2
+    },
+    {
+      "alias": "cache.size",
+      "yaxis": 2
+    },
+    {
+      "alias": "metricsReceived",
+      "yaxis": 2
+    }
+  ],
+  "links": []
+}
