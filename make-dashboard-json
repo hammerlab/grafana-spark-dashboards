@@ -151,7 +151,7 @@ var threadpool_row =     {
         "collapse": false,
         "panels": [
           {
-            "title": "active tasks (stacked per executor)",
+            "title": "Active tasks (stacked per executor)",
             "error": false,
             "span": 4,
             "editable": true,
@@ -200,7 +200,7 @@ var threadpool_row =     {
             },
             "targets": [
               {
-                "target": "aliasByNode(${statsd_prefix}${app_id}.*.executor.threadpool.activeTasks, 1)"
+                "target": "aliasByNode(summarize(${statsd_prefix}${app_id}.*.executor.threadpool.activeTasks,'10s', 'sum', false), 1)"
               }
             ],
             "aliasColors": {},
@@ -257,7 +257,7 @@ var threadpool_row =     {
             },
             "targets": [
               {
-                "target": "aliasByNode(${statsd_prefix}${app_id}.*.executor.threadpool.completeTasks, 1)"
+                "target": "aliasByNode(summarize(${statsd_prefix}${app_id}.*.executor.threadpool.completeTasks,'10s', 'sum', false), 1)"
               }
             ],
             "aliasColors": {},
@@ -372,7 +372,7 @@ var driver_row =     {
               "total": false,
               "avg": false
             },
-            "nullPointMode": "null",
+            "nullPointMode": "null as zero",
             "steppedLine": false,
             "tooltip": {
               "value_type": "cumulative",
@@ -380,18 +380,18 @@ var driver_row =     {
             },
             "targets": [
               {
-                "target": "alias(${statsd_prefix}${app_id}.<driver>.jvm.PS-Scavenge.count, 'gc count')",
+                "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.PS-Scavenge.count, 'gc count')",
                 "hide": false
               },
               {
-                "target": "alias(${statsd_prefix}${app_id}.<driver>.jvm.PS-Scavenge.time, 'gc time')",
+                "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.PS-Scavenge.time, 'gc time')",
                 "hide": false
               }
             ],
             "aliasColors": {},
             "seriesOverrides": [
               {
-                "alias": "${statsd_prefix}${app_id}.<driver>.jvm.PS-Scavenge.time",
+                "alias": "${statsd_prefix}${app_id}.${driver_identifier}.jvm.PS-Scavenge.time",
                 "yaxis": 2
               },
               {
@@ -451,10 +451,10 @@ var driver_row =     {
             },
             "targets": [
               {
-                "target": "alias(${statsd_prefix}${app_id}.<driver>.jvm.heap.usage, 'heap usage')"
+                "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.heap.usage, 'heap usage')"
               },
               {
-                "target": "alias(${statsd_prefix}${app_id}.<driver>.jvm.non-heap.usage, 'non-heap usage')"
+                "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.non-heap.usage, 'non-heap usage')"
               }
             ],
             "aliasColors": {},
@@ -520,16 +520,16 @@ var driver_row =     {
             },
             "targets": [
               {
-                "target": "alias(${statsd_prefix}${app_id}.<driver>.jvm.heap.used, 'heap used')"
+                "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.heap.used, 'heap used')"
               },
               {
-                "target": "alias(${statsd_prefix}${app_id}.<driver>.jvm.non-heap.used, 'non-heap used')"
+                "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.non-heap.used, 'non-heap used')"
               }
             ],
             "aliasColors": {},
             "seriesOverrides": [
               {
-                "alias": "${statsd_prefix}${app_id}.<driver>.jvm.non-heap.used",
+                "alias": "${statsd_prefix}${app_id}.${driver_identifier}.jvm.non-heap.used",
                 "yaxis": 2
               },
               {
@@ -589,7 +589,7 @@ var driver_row =     {
             },
             "targets": [
               {
-                "target": "alias(movingAverage(perSecond(${statsd_prefix}${app_id}.<driver>.jvm.PS-Scavenge.time), 10),'GC time')"
+                "target": "alias(perSecond(movingAverage(${statsd_prefix}${app_id}.${driver_identifier}.jvm.PS-Scavenge.time, 10)),'GC time')"
               }
             ],
             "aliasColors": {},
@@ -646,7 +646,7 @@ var driver_row =     {
             },
             "targets": [
               {
-                "target": "aliasSub(movingAverage(${statsd_prefix}${app_id}.<driver>.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+                "target": "aliasSub(movingAverage(${statsd_prefix}${app_id}.${driver_identifier}.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
               }
             ],
             "aliasColors": {},
@@ -707,7 +707,7 @@ var driver_row =     {
             },
             "targets": [
               {
-                "target": "aliasSub(movingAverage(${statsd_prefix}${app_id}.<driver>.jvm.total.*, 5), '^.*\\.(total\\.[^.,]*).*', '\\1')"
+                "target": "aliasSub(movingAverage(${statsd_prefix}${app_id}.${driver_identifier}.jvm.total.*, 5), '^.*\\.(total\\.[^.,]*).*', '\\1')"
               }
             ],
             "aliasColors": {},
@@ -998,7 +998,7 @@ var hdfs_row =     {
             },
             "targets": [
               {
-                "target": "aliasByNode(perSecond(${statsd_prefix}${app_id}.*.executor.filesystem.hdfs.read_bytes), 1)"
+                "target": "aliasByNode(perSecond(movingAverage(${statsd_prefix}${app_id}.*.executor.filesystem.hdfs.read_bytes), 10), 1)"
               }
             ],
             "aliasColors": {},
@@ -1411,13 +1411,16 @@ dashboardJson.rows.push(driver_row);
 dashboardJson.rows.push(hdfs_row);
 dashboardJson.rows.push(carbon_row);
 
+var statsd_mode = false;
+
 var renderedDashboardJson = render(
       dashboardJson,
       {
         "start_time": start_time.format('YYYY-MM-DDTHH:mm:ss.000Z'),
         "end_time": end_time.format('YYYY-MM-DDTHH:mm:ss.000Z'),
         "app_id": app_id,
-        "statsd_prefix": "stats.gauges."
+        "statsd_prefix": statsd_mode ? "stats.gauges." : "",
+        "driver_identifier": statsd_mode ? "driver" : "<driver>"
       },
       true
 );
