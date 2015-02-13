@@ -3,16 +3,32 @@
 var fs = require('fs');
 var moment = require('moment');
 
-var args = process.argv.slice(2);
-var app_id = args[0];
-var max_executor_id = 20;
+var args = require('node-getopt').create([
+  ['', 'statsd'],
+  ['', 'num-executors=ARG'],
+  ['', 'start=ARG'],
+  ['', 'end=ARG']
+]).bindHelp().parseSystem();
 
-var start_time = moment().subtract(10, 'minutes');
-var end_time = moment();
-if (args.length > 1) {
-  start_time = moment(new Date(args[1]));
-  end_time = moment(new Date(args[2]));
+var opts = args.options;
+
+var app_id = args.argv[0];
+var max_executor_id = ('num-executors' in opts) ? opts['num-executors'] : 20;
+
+function getTimeArg(key, def) {
+  var v = (key in opts) ? opts[key] : def;
+  if (v && v[0] == '-') {
+    var num = parseInt(v.substr(1));
+    var period = v.substr(1 + num.toString().length);
+    return moment().subtract(num, period);
+  } else {
+    return (!!v) ? moment(new Date(v)) : moment();
+  }
 }
+
+var start_time = getTimeArg('start', '-10m');
+var end_time = getTimeArg('end');
+var statsd_mode = opts['statsd'];
 
 var id = 1;
 function renderString(str, vars, strict) {
@@ -156,7 +172,6 @@ dashboardJson.rows = [
   carbon_row
 ];
 
-var statsd_mode = false;
 
 var renderedDashboardJson = render(
       dashboardJson,

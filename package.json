@@ -1,0 +1,7 @@
+{
+  "name": "spark-grafana-dashboards",
+  "version": "0.10.36",
+  "dependencies": {
+    "node-getopt": "0.2.3"
+  }
+}
