@@ -26,12 +26,11 @@ function renderString(str, vars, strict) {
 
     var varname = m[1];
     if (varname == 'id' || (varname in vars)) {
-      var value = (varname == 'id') ? id : vars[varname];
-
-      ret += str.slice(lastIndex, m.index) + value;
-
       if (varname == 'id') {
         id++;
+        return id;
+      } else {
+        ret += str.slice(lastIndex, m.index) + vars[varname];
       }
     } else if (strict) {
       throw new Error(
