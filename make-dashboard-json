@@ -14,6 +14,7 @@ var opts = args.options;
 
 var app_id = args.argv[0];
 var max_executor_id = ('num-executors' in opts) ? opts['num-executors'] : 20;
+var now = false;
 
 function getTimeArg(key, def) {
   var v = (key in opts) ? opts[key] : def;
@@ -22,12 +23,15 @@ function getTimeArg(key, def) {
     var period = v.substr(1 + num.toString().length);
     return moment().subtract(num, period);
   } else {
+    if (v == 'now') {
+      now = true;
+    }
     return (!!v) ? moment(new Date(v)) : moment();
   }
 }
 
 var start_time = getTimeArg('start', '-10m');
-var end_time = getTimeArg('end');
+var end_time = getTimeArg('end', 'now');
 var statsd_mode = opts['statsd'];
 
 var id = 1;
@@ -58,6 +62,8 @@ function renderString(str, vars, strict) {
       if (varname == 'id') {
         id++;
         return id;
+      } else if (varname == 'now') {
+        return now;
       } else {
         ret += str.slice(lastIndex, m.index) + vars[varname];
       }
@@ -211,7 +217,8 @@ var renderedDashboardJson = render(
       dashboardJson,
       {
         "start_time": start_time.format('YYYY-MM-DDTHH:mm:ss.000Z'),
-        "end_time": end_time.format('YYYY-MM-DDTHH:mm:ss.000Z'),
+        "end_time": now ? "now" : end_time.format('YYYY-MM-DDTHH:mm:ss.000Z'),
+        "now": now,
         "app_id": app_id,
         "statsd_prefix": statsd_mode ? "stats.gauges." : "",
         "driver_identifier": statsd_mode ? "driver" : "<driver>"

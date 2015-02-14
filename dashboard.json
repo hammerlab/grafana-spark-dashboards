@@ -38,14 +38,14 @@
         "2h",
         "1d"
       ],
-      "now": false,
+      "now": "${now}",
       "notice": false
     }
   ],
   "time": {
     "from": "${start_time}",
     "to": "${end_time}",
-    "now": false
+    "now": "${now}"
   },
   "templating": {
     "list": []
