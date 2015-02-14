@@ -48,7 +48,7 @@
   },
   "targets": [
     {
-      "target": "aliasByNode(derivative(summarize(${statsd_prefix}${app_id}.*.executor.threadpool.completeTasks, '1m', 'avg', false)), 1)"
+      "target": "aliasSub(derivative(summarize(${statsd_prefix}${app_id}.*.executor.threadpool.completeTasks, '1m', 'avg', false)), '^[^.]+\\.([^.]+)\\..*', '\\1')"
     }
   ],
   "aliasColors": {},

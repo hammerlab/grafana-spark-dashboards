@@ -48,7 +48,7 @@
   },
   "targets": [
     {
-      "target": "aliasByNode(${statsd_prefix}${app_id}.*.executor.filesystem.hdfs.read_bytes, 1)"
+      "target": "aliasSub(${statsd_prefix}${app_id}.*.executor.filesystem.hdfs.read_bytes, '^[^.]+\\.([^.]+)\\..*', '\\1')"
     }
   ],
   "aliasColors": {},

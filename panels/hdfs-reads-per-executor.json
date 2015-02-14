@@ -48,7 +48,7 @@
   },
   "targets": [
     {
-      "target": "aliasByNode(summarize(${statsd_prefix}${app_id}.*.executor.filesystem.hdfs.read_ops, '10s', 'avg'), 1)"
+      "target": "aliasSub(summarize(${statsd_prefix}${app_id}.*.executor.filesystem.hdfs.read_ops, '10s', 'avg'), '^[^.]+\\.([^.]+)\\..*', '\\1')"
     }
   ],
   "aliasColors": {},
