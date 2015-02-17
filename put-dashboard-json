@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
 
-id="$1"
-shift
-filename="$id".json
+# PUT a dashboard JSON file to the dashboard server, thereby creating a dashboard that Grafana can
+# load.
 
-echo "$filename"
+set -e
 
-./make-dashboard-json "$id" "$@" > "$filename"
+usage() {
+  echo "Usage: $0 <app id or name>" 1>&2
+  exit 1
+}
 
-curl -T "$filename" http://demeter-login2.demeter.hpc.mssm.edu:9200/grafana-dash/dashboard/
+this_dir="$(dirname "${BASH_SOURCE[0]}")"
+. "$this_dir"/get-dashboard-server
+
+filename="$dashboard_id".json
+
+echo "PUTting dashboard file: $filename"
+
+./make-dashboard-json "$dashboard_id" "$@" > "$filename"
+
+curl -T "$filename" "$dashboard_server_dir"/
 echo ''

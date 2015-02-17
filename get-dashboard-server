@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# `source` this file to initialize several variables to point to your dashboard (elasticsearch)
+# server.
+#
+# - "$dashboard_server" will be set to https?://<host>:<port> by parsing the value of the "-s"
+#   command-line flag or the $DASHBOARD_SERVER env var if the former is not found.
+#
+# - "$dashboard_index" will be set to "$DASHBOARD_INDEX" if found, otherwise "grafana-dash", which is
+#   the default value in Grafana's example configuration file:
+#
+#     https://github.com/grafana/grafana/blob/f1125d64dea29a3a148d8bdfd92159b45acc7951/src/config.sample.js#L48
+#
+# - "$dashboard_id" will be set to the first command-line argument.
+#
+# - Most importantly, "$dashboard_server_url" will be set to:
+#   "$dashboard_server/$dashboard_index/dashboard/$dashboard_id".
+#
+# Assumes the existence of a usage() function that exits with a code > 0.
+
+dashboard_server=
+dashboard_index=
+while getopts "si" opt; do
+  case $opt in
+    s)
+      dashboard_server="$2"
+      shift
+      shift
+    ;;
+    i)
+      dashboard_index="$2"
+      shift
+      shift
+    ;;
+  esac
+done
+
+if [ $# -eq 0 ]; then
+  usage
+fi
+
+if [ -z "$dashboard_server" ]; then
+  if [ -z "$DASHBOARD_SERVER" ]; then
+    usage
+  fi
+
+  dashboard_server="$DASHBOARD_SERVER"
+fi
+
+if [[ ! "$dashboard_server" =~ ^https?:// ]]; then
+  dashboard_server=http://"$dashboard_server"
+fi
+
+if [ -z "$dashboard_index" ]; then
+  if [ -n "$DASHBOARD_INDEX" ]; then
+    dashboard_index="$DASHBOARD_INDEX"
+  else
+    # Default value
+    dashboard_index="grafana-dash"
+  fi
+fi
+
+dashboard_id="$1"
+dashboard_server_dir="$dashboard_server/$dashboard_index/dashboard/"
+dashboard_server_url="$dashboard_server_dir/$id"

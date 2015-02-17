@@ -1,37 +1,16 @@
 #!/usr/bin/env bash
 
+# Retrieve a dashboard's JSON from the dashboard server, print it raw, and then print the
+# unescaped "dashboard" JSON that is the main interesting part of the former.
+
+set -e
+
 usage() {
   echo "Usage: $0 -s <elasticsearch dashboard server host:port> <app id or name>" 1>&2
   exit 1
 }
 
-dashboard_server=
-while getopts "s" opt; do
-  case $opt in
-    s)
-      dashboard_server="$2"
-      shift
-      shift
-    ;;
-  esac
-done
+this_dir="$(dirname "${BASH_SOURCE[0]}")"
+. "$this_dir"/get-dashboard-server
 
-if [ $# -eq 0 ]; then
-  usage
-fi
-
-if [ -z "$dashboard_server" ]; then
-  if [ -z "$DASHBOARD_SERVER" ]; then
-    usage
-  fi
-
-  dashboard_server="$DASHBOARD_SERVER"
-fi
-
-if [[ ! "$dashboard_server" =~ ^https?:// ]]; then
-  dashboard_server=http://"$dashboard_server"
-fi
-
-url="$dashboard_server"/grafana-dash/dashboard/"$1"
-
-curl -s "$url" | ./parse-dashboard-json
+curl -s "$dashboard_server_url" | ./parse-dashboard-json
