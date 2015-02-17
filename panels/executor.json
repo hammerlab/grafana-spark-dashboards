@@ -40,7 +40,7 @@
     "total": false,
     "avg": false
   },
-  "nullPointMode": "null",
+  "nullPointMode": "connected",
   "steppedLine": false,
   "tooltip": {
     "value_type": "cumulative",
@@ -48,7 +48,7 @@
   },
   "targets": [
     {
-      "target": "aliasSub(movingAverage(${statsd_prefix}${app_id}.${executor_id}.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+      "target": "aliasSub(aliasSub(${statsd_prefix}${app_id}.${executor_id}.jvm.pools.*.usage, '^.*\\.([^.]*)\\.usage.*', '\\1'), 'PS-', '')"
     }
   ],
   "aliasColors": {},
