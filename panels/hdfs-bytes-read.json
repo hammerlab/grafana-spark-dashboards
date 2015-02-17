@@ -40,7 +40,7 @@
     "total": false,
     "avg": false
   },
-  "nullPointMode": "connected",
+  "nullPointMode": "null as zero",
   "steppedLine": false,
   "tooltip": {
     "value_type": "individual",
