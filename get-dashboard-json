@@ -1,3 +1,37 @@
 #!/usr/bin/env bash
 
-curl -s http://demeter-login2.demeter.hpc.mssm.edu:9200/grafana-dash/dashboard/"$1" | ./parse-dashboard-json
+usage() {
+  echo "Usage: $0 -s <elasticsearch dashboard server host:port> <app id or name>" 1>&2
+  exit 1
+}
+
+dashboard_server=
+while getopts "s" opt; do
+  case $opt in
+    s)
+      dashboard_server="$2"
+      shift
+      shift
+    ;;
+  esac
+done
+
+if [ $# -eq 0 ]; then
+  usage
+fi
+
+if [ -z "$dashboard_server" ]; then
+  if [ -z "$DASHBOARD_SERVER" ]; then
+    usage
+  fi
+
+  dashboard_server="$DASHBOARD_SERVER"
+fi
+
+if [[ ! "$dashboard_server" =~ ^https?:// ]]; then
+  dashboard_server=http://"$dashboard_server"
+fi
+
+url="$dashboard_server"/grafana-dash/dashboard/"$1"
+
+curl -s "$url" | ./parse-dashboard-json
