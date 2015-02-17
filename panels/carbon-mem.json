@@ -48,23 +48,11 @@
   },
   "targets": [
     {
-      "target": "aliasSub(carbon.agents.demeter-login1-a.metricsReceived, '.*demeter-login1-a\\.(.*)', '\\1')",
-      "hide": true
-    },
-    {
-      "target": "aliasSub(carbon.agents.demeter-login1-a.pointsPerUpdate, '.*demeter-login1-a\\.(.*)', '\\1')",
-      "hide": true
-    },
-    {
-      "target": "aliasSub(carbon.agents.demeter-login1-a.cache.size, '.*demeter-login1-a\\.(.*)', '\\1')",
-      "hide": true
-    },
-    {
-      "target": "aliasSub(carbon.agents.demeter-login1-a.cache.size, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "target": "alias(carbon.agents.*.cache.size, 'cache.size')",
       "hide": false
     },
     {
-      "target": "aliasSub(carbon.agents.demeter-login1-a.memUsage, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "target": "alias(carbon.agents.*.memUsage, 'memUsage')",
       "hide": false
     }
   ],

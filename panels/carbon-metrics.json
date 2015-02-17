@@ -48,24 +48,20 @@
   },
   "targets": [
     {
-      "target": "aliasSub(carbon.agents.demeter-login1-a.metricsReceived, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "target": "alias(carbon.agents.*.metricsReceived, 'metricsReceived')",
       "hide": false
     },
     {
-      "target": "aliasSub(carbon.agents.demeter-login1-a.pointsPerUpdate, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "target": "alias(carbon.agents.*.pointsPerUpdate, 'pointsPerUpdate')",
       "hide": false
     },
     {
-      "target": "aliasSub(carbon.agents.demeter-login1-a.avgUpdateTime, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "target": "alias(carbon.agents.*.avgUpdateTime, 'avgUpdateTime')",
       "hide": false
     },
     {
-      "target": "aliasSub(carbon.agents.demeter-login1-a.errors, '.*demeter-login1-a\\.(.*)', '\\1')",
+      "target": "alias(carbon.agents.*.errors, 'errors')",
       "hide": false
-    },
-    {
-      "target": "aliasSub(carbon.agents.demeter-login1-a.cache.queues, '.*demeter-login1-a\\.(.*)', '\\1')",
-      "hide": true
     }
   ],
   "aliasColors": {},
