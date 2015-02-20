@@ -62,14 +62,6 @@
   "aliasColors": {},
   "seriesOverrides": [
     {
-      "alias": "memUsage",
-      "yaxis": 2
-    },
-    {
-      "alias": "cache.size",
-      "yaxis": 2
-    },
-    {
       "alias": "metricsReceived",
       "yaxis": 2
     }

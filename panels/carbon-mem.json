@@ -63,14 +63,6 @@
       "alias": "cache.size",
       "yaxis": 2
     },
-    {
-      "alias": "metricsReceived",
-      "yaxis": 2
-    },
-    {
-      "alias": "updateOperations",
-      "yaxis": 2
-    }
   ],
   "links": []
 }
