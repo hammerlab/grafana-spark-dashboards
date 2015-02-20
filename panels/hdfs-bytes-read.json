@@ -10,7 +10,7 @@
   "y-axis": true,
   "y_formats": [
     "bytes",
-    "short"
+    "bytes"
   ],
   "grid": {
     "leftMax": null,
