@@ -22,13 +22,13 @@
     "threshold1Color": "rgba(216, 200, 27, 0.27)",
     "threshold2Color": "rgba(234, 112, 112, 0.22)"
   },
-  "lines": true,
-  "fill": 10,
+  "lines": false,
+  "fill": 0,
   "linewidth": 1,
   "points": true,
   "pointradius": 1,
   "bars": false,
-  "stack": true,
+  "stack": false,
   "percentage": false,
   "legend": {
     "show": false,
@@ -48,9 +48,39 @@
   "targets": [
     {
       "target": "aliasSub(perSecond(summarize($prefix.$executorRange.executor.filesystem.hdfs.read_ops, '10s', 'avg', false)), '^[^.]+\\.([^.]+)\\..*', '\\1')"
+    },
+    {
+      "target": "alias(sumSeries(perSecond(summarize($prefix.*.executor.filesystem.hdfs.read_ops, '10s', 'avg', false))), 'total')"
+    },
+    {
+      "target": "alias(percentileOfSeries(perSecond(summarize($prefix.*.executor.filesystem.hdfs.read_ops, '10s', 'avg', false)), 50, 'false'), '%50')"
+    },
+    {
+      "target": "alias(percentileOfSeries(perSecond(summarize($prefix.*.executor.filesystem.hdfs.read_ops, '10s', 'avg', false)), 25, 'false'), '%25')"
+    },
+    {
+      "target": "alias(percentileOfSeries(perSecond(summarize($prefix.*.executor.filesystem.hdfs.read_ops, '10s', 'avg', false)), 75, 'false'), '%75')"
+    },
+    {
+      "target": "alias(percentileOfSeries(perSecond(summarize($prefix.*.executor.filesystem.hdfs.read_ops, '10s', 'avg', false)), 5, 'false'), '%5')"
+    },
+    {
+      "target": "alias(percentileOfSeries(perSecond(summarize($prefix.*.executor.filesystem.hdfs.read_ops, '10s', 'avg', false)), 95, 'false'), '%95')"
     }
   ],
   "aliasColors": {},
-  "seriesOverrides": [],
+  "seriesOverrides": [
+    {
+      "alias": "/total/",
+      "linewidth": 4,
+      "yaxis": 2,
+      "lines": true
+    },
+    {
+      "alias": "/%/",
+      "linewidth": 1,
+      "lines": true
+    }
+  ],
   "links": []
 }
