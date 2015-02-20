@@ -39,7 +39,7 @@
     "total": false,
     "avg": false
   },
-  "nullPointMode": "null as zero",
+  "nullPointMode": "null",
   "steppedLine": false,
   "tooltip": {
     "value_type": "individual",

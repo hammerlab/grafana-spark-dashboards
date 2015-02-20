@@ -39,7 +39,7 @@
     "total": false,
     "avg": false
   },
-  "nullPointMode": "connected",
+  "nullPointMode": "null",
   "steppedLine": false,
   "tooltip": {
     "value_type": "cumulative",
