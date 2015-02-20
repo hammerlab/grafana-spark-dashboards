@@ -1,5 +1,5 @@
 {
-  "title": "driver scavenge GC",
+  "title": "Driver scavenge GC",
   "error": false,
   "span": 4,
   "editable": true,
@@ -56,11 +56,7 @@
   "aliasColors": {},
   "seriesOverrides": [
     {
-      "alias": "${statsd_prefix}${app_id}.${driver_identifier}.jvm.PS-Scavenge.time",
-      "yaxis": 2
-    },
-    {
-      "alias": "gc time",
+      "alias": "GC time",
       "yaxis": 2
     }
   ],

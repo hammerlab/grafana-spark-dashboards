@@ -1,5 +1,5 @@
 {
-  "title": "hdfs reads/s",
+  "title": "HDFS reads/s",
   "error": false,
   "span": 4,
   "editable": true,

@@ -1,5 +1,5 @@
 {
-  "title": "hdfs reads/s/executor",
+  "title": "HDFS reads/s/executor",
   "error": false,
   "span": 4,
   "editable": true,
