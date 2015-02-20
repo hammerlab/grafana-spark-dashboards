@@ -48,11 +48,9 @@
   "targets": [
     {
       "target": "alias($prefix.$driver.jvm.PS-Scavenge.count, 'GC count')",
-      "hide": false
     },
     {
       "target": "alias($prefix.$driver.jvm.PS-Scavenge.time, 'GC time')",
-      "hide": false
     }
   ],
   "aliasColors": {},

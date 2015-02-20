@@ -48,11 +48,9 @@
   "targets": [
     {
       "target": "alias(carbon.agents.*.updateOperations, 'updateOperations')",
-      "hide": false
     },
     {
       "target": "alias(carbon.agents.*.cache.queues, 'cache.queues')",
-      "hide": false
     }
   ],
   "aliasColors": {},

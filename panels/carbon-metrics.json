@@ -48,19 +48,15 @@
   "targets": [
     {
       "target": "alias(carbon.agents.*.metricsReceived, 'metricsReceived')",
-      "hide": false
     },
     {
       "target": "alias(carbon.agents.*.pointsPerUpdate, 'pointsPerUpdate')",
-      "hide": false
     },
     {
       "target": "alias(carbon.agents.*.avgUpdateTime, 'avgUpdateTime')",
-      "hide": false
     },
     {
       "target": "alias(carbon.agents.*.errors, 'errors')",
-      "hide": false
     }
   ],
   "aliasColors": {},

@@ -48,11 +48,9 @@
   "targets": [
     {
       "target": "alias(carbon.agents.*.cache.size, 'cache.size')",
-      "hide": false
     },
     {
       "target": "alias(carbon.agents.*.memUsage, 'memUsage')",
-      "hide": false
     }
   ],
   "aliasColors": {},
