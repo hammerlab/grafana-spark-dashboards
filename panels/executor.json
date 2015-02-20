@@ -48,6 +48,9 @@
   "targets": [
     {
       "target": "aliasSub(aliasSub($prefix.${executor_id}.jvm.pools.*.usage, '^.*\\.([^.]*)\\.usage.*', '\\1'), '(PS-)?(-Space)?-?', '')",
+    },
+    {
+      "target": "aliasSub($prefix.${executor_id}.jvm.{non-heap,heap}.usage, '.*\\.((non-)?heap)\\.*', '\\1')"
     }
   ],
   "aliasColors": {},
