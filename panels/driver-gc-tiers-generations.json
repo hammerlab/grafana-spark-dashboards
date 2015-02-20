@@ -47,7 +47,7 @@
   },
   "targets": [
     {
-      "target": "aliasSub(movingAverage(${statsd_prefix}${app_id}.${driver_identifier}.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
+      "target": "aliasSub(movingAverage($prefix.$driver.jvm.pools.*.usage, 10), '^.*\\.([^.]*)\\.usage.*', '\\1')"
     }
   ],
   "aliasColors": {},

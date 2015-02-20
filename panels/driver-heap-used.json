@@ -47,16 +47,16 @@
   },
   "targets": [
     {
-      "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.heap.used, 'heap used')"
+      "target": "alias($prefix.$driver.jvm.heap.used, 'heap used')"
     },
     {
-      "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.non-heap.used, 'non-heap used')"
+      "target": "alias($prefix.$driver.jvm.non-heap.used, 'non-heap used')"
     }
   ],
   "aliasColors": {},
   "seriesOverrides": [
     {
-      "alias": "${statsd_prefix}${app_id}.${driver_identifier}.jvm.non-heap.used",
+      "alias": "$prefix.$driver.jvm.non-heap.used",
       "yaxis": 2
     },
     {

@@ -47,7 +47,7 @@
   },
   "targets": [
     {
-      "target": "aliasSub(summarize(${statsd_prefix}${app_id}.${driver_identifier}.jvm.total.*, '10s', 'avg', false), '^.*\\.(total\\.[^.,]*).*', '\\1')"
+      "target": "aliasSub(summarize($prefix.$driver.jvm.total.*, '10s', 'avg', false), '^.*\\.(total\\.[^.,]*).*', '\\1')"
     }
   ],
   "aliasColors": {},

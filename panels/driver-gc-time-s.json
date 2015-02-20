@@ -47,7 +47,7 @@
   },
   "targets": [
     {
-      "target": "alias(perSecond(movingAverage(${statsd_prefix}${app_id}.${driver_identifier}.jvm.PS-Scavenge.time, 10)),'GC time')"
+      "target": "alias(perSecond(movingAverage($prefix.$driver.jvm.PS-Scavenge.time, 10)),'GC time')"
     }
   ],
   "aliasColors": {},

@@ -47,7 +47,7 @@
   },
   "targets": [
     {
-      "target": "aliasSub(nonNegativeDerivative(summarize(${statsd_prefix}${app_id}.*.executor.threadpool.completeTasks, '1m', 'avg', false)), '^[^.]+\\.([^.]+)\\..*', '\\1')"
+      "target": "aliasSub(nonNegativeDerivative(summarize($prefix.$executorRange.executor.threadpool.completeTasks, '1m', 'avg', false)), '^[^.]+\\.([^.]+)\\..*', '\\1')"
     }
   ],
   "aliasColors": {},

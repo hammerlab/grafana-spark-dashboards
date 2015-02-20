@@ -47,10 +47,10 @@
   },
   "targets": [
     {
-      "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.heap.usage, 'heap usage')"
+      "target": "alias($prefix.$driver.jvm.heap.usage, 'heap usage')"
     },
     {
-      "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.non-heap.usage, 'non-heap usage')"
+      "target": "alias($prefix.$driver.jvm.non-heap.usage, 'non-heap usage')"
     }
   ],
   "aliasColors": {},

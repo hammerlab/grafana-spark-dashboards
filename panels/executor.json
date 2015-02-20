@@ -47,7 +47,7 @@
   },
   "targets": [
     {
-      "target": "aliasSub(aliasSub(${statsd_prefix}${app_id}.${executor_id}.jvm.pools.*.usage, '^.*\\.([^.]*)\\.usage.*', '\\1'), '(PS-)?(-Space)?-?', '')"
+      "target": "aliasSub(aliasSub($prefix.${executor_id}.jvm.pools.*.usage, '^.*\\.([^.]*)\\.usage.*', '\\1'), '(PS-)?(-Space)?-?', '')",
     }
   ],
   "aliasColors": {},

@@ -47,7 +47,7 @@
   },
   "targets": [
     {
-      "target": "aliasSub(summarize(${statsd_prefix}${app_id}.*.executor.threadpool.activeTasks,'10s', 'sum', false), '^[^.]+\\.([^.]+)\\..*', '\\1')"
+      "target": "aliasSub(summarize($prefix.$executorRange.executor.threadpool.activeTasks,'10s', 'sum', false), '^[^.]+\\.([^.]+)\\..*', '\\1')"
     }
   ],
   "aliasColors": {},

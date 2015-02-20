@@ -47,7 +47,7 @@
   },
   "targets": [
     {
-      "target": "aliasSub(derivative(summarize(${statsd_prefix}${app_id}.*.executor.filesystem.hdfs.read_ops, '10s', 'avg')), '^[^.]+\\.([^.]+)\\..*', '\\1')"
+      "target": "aliasSub(perSecond(summarize($prefix.$executorRange.executor.filesystem.hdfs.read_ops, '10s', 'avg', false)), '^[^.]+\\.([^.]+)\\..*', '\\1')"
     }
   ],
   "aliasColors": {},

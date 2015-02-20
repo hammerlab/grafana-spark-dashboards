@@ -47,11 +47,11 @@
   },
   "targets": [
     {
-      "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.PS-Scavenge.count, 'gc count')",
+      "target": "alias($prefix.$driver.jvm.PS-Scavenge.count, 'GC count')",
       "hide": false
     },
     {
-      "target": "alias(${statsd_prefix}${app_id}.${driver_identifier}.jvm.PS-Scavenge.time, 'gc time')",
+      "target": "alias($prefix.$driver.jvm.PS-Scavenge.time, 'GC time')",
       "hide": false
     }
   ],
