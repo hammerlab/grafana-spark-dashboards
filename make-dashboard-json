@@ -58,12 +58,9 @@ function renderString(str, vars, strict) {
     }
 
     var varname = m[1];
-    if (varname == 'id' || (varname in vars)) {
-      if (varname == 'id') {
-        id++;
-        return id;
-      } else if (varname == 'now') {
-        return now;
+    if (varname in vars) {
+      if (lastIndex == 0 && m[0].length == str.length) {
+        return vars[varname];
       } else {
         ret += str.slice(lastIndex, m.index) + vars[varname];
       }
