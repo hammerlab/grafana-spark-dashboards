@@ -4,7 +4,6 @@
   "span": 6,
   "editable": true,
   "type": "graph",
-  "id": "${id}",
   "datasource": null,
   "renderer": "flot",
   "x-axis": true,
