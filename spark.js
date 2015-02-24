@@ -93,7 +93,7 @@ function getTo() {
 }
 
 function getYarnAppInfo() {
-  if (_.isUndefined(ARGS.app) && _.isUndefined(ARGS.name)) {
+  if (_.isUndefined(ARGS.app) && _.isUndefined(ARGS.prefix)) {
     throw new Error("'app' xor 'name' URL parameter required");
   }
   if (!_.isUndefined(ARGS.app)) {
@@ -103,12 +103,12 @@ function getYarnAppInfo() {
     }
     return app;
   }
-  if (!_.isUndefined(ARGS.name)) {
+  if (!_.isUndefined(ARGS.prefix)) {
     var from = getFrom();
     var to = getTo();
     var now = (to == 'now');
     return {
-      id: ARGS.name,
+      prefix: ARGS.prefix,
       now: now,
       from: from,
       to: to,
