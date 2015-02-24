@@ -715,6 +715,10 @@ var carbon_row = {
           ],
           {
             legend: legend(true),
+            y_formats: [
+              "bytes",
+              "bytes"
+            ],
             seriesOverrides: [
               {
                 alias: "memUsage",
