@@ -586,7 +586,7 @@ var hdfs_row =     {
   collapse: false,
   panels: [
     multiExecutorPanel(
-          "HDFS reads/s",
+          "HDFS reads/s, 10s avgs",
           "filesystem.hdfs.read_ops",
           {
             span: 6,
@@ -627,7 +627,7 @@ var hdfs_row =     {
           percentilesAndTotals ? [ 25, 50, 75, 'total' ] : []
     ),
     multiExecutorPanel(
-          "HDFS bytes read/s/executor",
+          "HDFS bytes read/s/executor, 10s avgs",
           "filesystem.hdfs.read_bytes",
           {
             y_formats: [
