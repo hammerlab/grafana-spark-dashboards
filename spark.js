@@ -111,7 +111,7 @@ function getYarnAppInfo() {
       prefix: ARGS.prefix,
       now: now,
       from: from,
-      to: to,
+      to: to
     };
   } else {
     return ;
@@ -366,7 +366,6 @@ function merge(src, dest) {
 // Base function to set some boilerplate panel-configuration values.
 function panel(title, targets, opts, showLegend) {
   var legendVar = (showLegend == undefined) ? legends : showLegend;
-  console.log(legendVar);
   return merge(
         opts,
         {
@@ -515,7 +514,7 @@ var threadpool_row = {
             fill: 10,
             nullPointMode: 'null as zero',
             tooltip: {
-              value_type: "individual",
+              value_type: "individual"
             }
           }
     ),
