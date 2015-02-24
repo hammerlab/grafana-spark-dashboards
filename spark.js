@@ -25,6 +25,8 @@ var collapseExecutors = getBoolParam(ARGS.collapseExecutors, true);
 var sharedTooltip = getBoolParam(ARGS.sharedTooltip, true);
 var legends = getBoolParam(ARGS.legends, false);
 var executorLegends = getBoolParam(ARGS.executorLegends, true);
+var percentilesAndTotals = getBoolParam(ARGS.percentiles, false);
+
 
 function fetchYarnApps() {
   var apps = null;
@@ -517,7 +519,12 @@ var threadpool_row = {
             }
           }
     ),
-    multiExecutorPanel("Completed tasks per executor", "threadpool.completeTasks", {}, ['total']),
+    multiExecutorPanel(
+          "Completed tasks per executor",
+          "threadpool.completeTasks",
+          {},
+          percentilesAndTotals ? ['total'] : []
+    ),
     panel(
           "Completed tasks per minute per executor",
           [
@@ -598,7 +605,7 @@ var hdfs_row =     {
               }
             ]
           },
-          [ 25, 50, 75, 'total' ],
+          percentilesAndTotals ? [ 25, 50, 75, 'total' ] : [],
           [ perSecond ]
     ),
     multiExecutorPanel(
@@ -618,7 +625,7 @@ var hdfs_row =     {
               }
             ]
           },
-          [ 25, 50, 75, 'total' ]
+          percentilesAndTotals ? [ 25, 50, 75, 'total' ] : []
     ),
     multiExecutorPanel(
           "HDFS bytes read/s/executor",
@@ -641,7 +648,7 @@ var hdfs_row =     {
               }
             ]
           },
-          [ 25, 50, 75, 'total' ],
+          percentilesAndTotals ? [ 25, 50, 75, 'total' ] : [],
           [ perSecond ]
     ),
     multiExecutorPanel(
@@ -654,7 +661,7 @@ var hdfs_row =     {
             ],
             span: 6
           },
-          [5,50,95,'total']
+          percentilesAndTotals ? [ 5, 50, 95, 'total' ] : []
     ),
   ],
 }
