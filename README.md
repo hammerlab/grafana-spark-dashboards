@@ -1,6 +1,6 @@
 # grafana-spark-dashboards
 
-This repository contains a Grafana "scripted dashboard", `spark.js`, designed to display metrics collected from Spark applications.
+This repository contains a Grafana "scripted dashboard", `spark.js`, designed to display metrics collected from Spark applications. You can read more about the background and motivation [here](http://www.hammerlab.org/2015/02/27/monitoring-spark-with-graphite-and-grafana/).
 
 ## What You'll See
 
