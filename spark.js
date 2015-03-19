@@ -30,8 +30,7 @@ var percentilesAndTotals = getBoolParam(ARGS.percentiles, false);
 
 function fetchYarnApps() {
   var apps = null;
-  // TODO(ryan): inject / configure this value somehow.
-  jQuery.ajax('http://demeter-login2.demeter.hpc.mssm.edu:8091/ws/v1/cluster/apps', {
+  jQuery.ajax('http://localhost:8091/ws/v1/cluster/apps', {
     accepts: { json: 'application/json' },
     dataType: 'json',
     async: false,
