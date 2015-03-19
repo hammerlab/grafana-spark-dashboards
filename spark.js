@@ -476,6 +476,10 @@ var dashboard = {
   }
 };
 
+if (app.now) {
+  dashboard.refresh = '1m';
+}
+
 // A "row" with many per-executor graphs.
 var executor_row = {
   title: "Executor JVMs",
