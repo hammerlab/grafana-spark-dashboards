@@ -534,7 +534,8 @@ var threadpool_row = {
                   nonNegativeDerivative(
                         summarize(
                               prefix("threadpool.completeTasks"),
-                              '1m'
+                              '1m',
+                              'max'
                         )
                   )
             )
