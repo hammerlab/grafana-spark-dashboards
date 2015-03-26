@@ -33,6 +33,7 @@ This can be an arduous process, but try following the instructions at the [Graph
 ### Configure Spark to Send Metrics to Graphite.
 
 [This StackOverflow answer that I wrote][MetricsSystem SO answer] explains the process for configuring Spark to send metrics to Graphite.
+Alternatively you can modify your `metrics.properties` under `conf` floder on each node, then you can submit your application without append such `--conf` `--file` arguments.
 
 ### Install and Configure Grafana
 
@@ -68,6 +69,7 @@ ln -s $THIS_REPO/spark.js $GRAFANA_REPO/src/app/dashboards/spark.js
 ```
 
 Now you should be able to go to [http://<grafana host>:8090/#/dashboard/script/spark.js?app=$YARN_APP_ID&maxExecutorId=$N](), substituting values for the URL-params values, and see a Spark dashboard!
+By the way, if your Spark cluster is a standalone cluster, you should go to [http://<grafana host>:8090/#/dashboard/script/spark.js?prefix=$APP_ID]() to see your Spark dashboard.
 
 ## `spark.js` URL API
 
